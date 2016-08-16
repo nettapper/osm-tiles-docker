@@ -31,13 +31,24 @@ RUN apt-get install -y autoconf apache2-dev libtool libxml2-dev libbz2-dev libge
 RUN apt-get install -y postgresql-9.3-postgis-2.1 postgresql-contrib postgresql-server-dev-9.3
 
 # Install osm2pgsql
+# RUN cd /tmp && git clone git://github.com/openstreetmap/osm2pgsql.git && \
+#     cd /tmp/osm2pgsql && \
+#     git checkout 0.88.1 && \
+#     ./autogen.sh && \
+#     ./configure && \
+#     make && make install && \
+#     cd /tmp && rm -rf /tmp/osm2pgsql
+
+# Install osm2pgsql 0.90.1
+RUN apt-get install -y cmake
 RUN cd /tmp && git clone git://github.com/openstreetmap/osm2pgsql.git && \
     cd /tmp/osm2pgsql && \
     git checkout 0.90.1 && \
-    ./autogen.sh && \
-    ./configure && \
+    mkdir build && cd build && \
+    cmake .. && \
     make && make install && \
     cd /tmp && rm -rf /tmp/osm2pgsql
+
 
 # TODO: mapnik 3.0.5
 
