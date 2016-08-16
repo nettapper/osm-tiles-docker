@@ -33,7 +33,7 @@ RUN apt-get install -y postgresql-9.3-postgis-2.1 postgresql-contrib postgresql-
 # Install osm2pgsql
 RUN cd /tmp && git clone git://github.com/openstreetmap/osm2pgsql.git && \
     cd /tmp/osm2pgsql && \
-    git checkout 0.88.1 && \
+    git checkout 0.90.1 && \
     ./autogen.sh && \
     ./configure && \
     make && make install && \
