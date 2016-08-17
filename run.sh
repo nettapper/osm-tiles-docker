@@ -78,11 +78,9 @@ import () {
     number_processes=`nproc`
 
     # Limit to 8 to prevent overwhelming pg with connections
-    # if test $number_processes -ge 8
-    if test $number_processes -ge 1
+    if test $number_processes -ge 8
     then
-        # number_processes=8
-        number_processes=1
+        number_processes=8
     fi
 
     $asweb osm2pgsql --slim --hstore --cache $OSM_IMPORT_CACHE --database gis --number-processes $number_processes $import
