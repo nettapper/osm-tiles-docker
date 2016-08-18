@@ -106,7 +106,7 @@ ADD mod_tile.conf /etc/apache2/mods-available/
 RUN a2enmod mod_tile
 
 # Ensure the webserver user can connect to the gis database
-RUN sed -i -e 's/local   all             all                                     peer/local gis www-data peer/' /etc/postgresql/9.3/main/pg_hba.conf
+RUN sed -i -e 's/local   all             all                                     peer/local gis www-data trust/' /etc/postgresql/9.3/main/pg_hba.conf
 
 # Tune postgresql
 ADD postgresql.conf.sed /tmp/
