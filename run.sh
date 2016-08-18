@@ -83,7 +83,7 @@ import () {
         number_processes=8
     fi
 
-    $asweb osm2pgsql --slim --hstore --cache $OSM_IMPORT_CACHE --database gis --number-processes $number_processes $import
+    $asweb osm2pgsql --slim --hstore --cache $OSM_IMPORT_CACHE -U www-data --database gis --number-processes $number_processes $import
 }
 
 # render tiles via render_list
